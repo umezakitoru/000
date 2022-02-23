@@ -7,21 +7,21 @@ export const homeRoutes = [
   {
     path: "/",
     exact: true,
-    chldren: <Home />
+    children: <Home />
   },
   {
     path: "/user_management",
     exact: false,
-    chldren: <UserManagement />
+    children: <UserManagement />
   },
   {
     path: "/setting",
     exact: false,
-    chldren: <Setting />
+    children: <Setting />
   },
   {
     path: "*",
     exact: false,
-    chldren: <Page404 />
+    children: <Page404 />
   }
 ];
