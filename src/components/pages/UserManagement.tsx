@@ -5,7 +5,15 @@ export const UserManagement: VFC = memo(() => {
   return (
     <Wrap>
       <WrapItem>
-        <Box w="260px" h="260px" bg="white" borderRadius="10px" shadow="md">
+        <Box
+          w="260px"
+          h="260px"
+          bg="white"
+          borderRadius="10px"
+          shadow="md"
+          p={4}
+          _hover={{ cursor: "pointer", opacity: 0.8 }}
+        >
           <Stack textAlign="center">
             <Image
               borderRadius="full"
