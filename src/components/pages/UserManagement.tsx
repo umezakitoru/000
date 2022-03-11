@@ -12,19 +12,21 @@ export const UserManagement: VFC = memo(() => {
 
   return (
     <>
-      {true ? (
-        <Center h="100hv">
+      {loading ? (
+        <Center h="100vh">
           <Spinner />
         </Center>
       ) : (
         <Wrap p={{ base: 4, md: 10 }}>
-          <WrapItem>
-            <UserCard
-              imageUrl="https://source.unsplash.com/random"
-              userName="うめ"
-              fullName="umezaki toru"
-            />
-          </WrapItem>
+          {users.map((user) => (
+            <WrapItem key={user.id}>
+              <UserCard
+                imageUrl="https://source.unsplash.com/random"
+                userName="うめ"
+                fullName="umezaki toru"
+              />
+            </WrapItem>
+          ))}
         </Wrap>
       )}
     </>
