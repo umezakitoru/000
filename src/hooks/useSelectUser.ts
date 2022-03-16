@@ -6,7 +6,7 @@ type Props = {
   users: Array<User>;
 };
 
-export const useSelectuser = () => {
+export const useSelectUser = () => {
   const [selectedUser, setSelectedUser] = useState<User | null>(null);
   const onSelectUser = useCallback((props: Props) => {
     const { id, users } = props;
