@@ -23,12 +23,13 @@ export const useAuth = () => {
             history.push("/home");
           } else {
             showMessage({ title: "ユーザが見つかりません。", status: "error" });
+            setLoading(false);
           }
         })
         .catch(() => {
           showMessage({ title: "ログイン出来ません。", status: "error" });
-        })
-        .finally(() => setLoading(false));
+          setLoading(false);
+        });
     },
     [history, showMessage, setLoginUser]
   );
