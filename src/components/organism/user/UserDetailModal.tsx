@@ -7,20 +7,24 @@ import {
   ModalBody,
   ModalCloseButton,
   ModalContent,
+  ModalFooter,
   ModalHeader,
   ModalOverlay,
   Stack
 } from "@chakra-ui/react";
 import { User } from "../../../types/api/user";
+import { PrimaryButton } from "../../atoms/button/PrimaryButton";
 
 type Props = {
   user: User | null;
   isOpen: boolean;
+  isAdmin?: boolean;
   onClose: () => void;
 };
 
 export const UserDetailModal: VFC<Props> = memo((props) => {
-  const { user, isOpen, onClose } = props;
+  const { user, isOpen, isAdmin = false, onClose } = props;
+  const onClickUpdate = () => alert();
   return (
     <Modal
       isOpen={isOpen}
@@ -53,6 +57,9 @@ export const UserDetailModal: VFC<Props> = memo((props) => {
           </Stack>
         </ModalBody>
       </ModalContent>
+      <ModalFooter>
+        <PrimaryButton onClick={onClickUpdate}>更新</PrimaryButton>
+      </ModalFooter>
     </Modal>
   );
 });
