@@ -1,4 +1,4 @@
-import { memo, useEffect, useState, VFC } from "react";
+import { ChangeEvent, memo, useEffect, useState, VFC } from "react";
 import {
   FormControl,
   FormLabel,
@@ -36,6 +36,18 @@ export const UserDetailModal: VFC<Props> = memo((props) => {
     setPhone(user?.phone ?? "");
   }, [user]);
 
+  const onChangeUserName = (e: ChangeEvent<HTMLInputElement>) =>
+    setUsername(e.target.value);
+
+  const onChangeName = (e: ChangeEvent<HTMLInputElement>) =>
+    setName(e.target.value);
+
+  const onChangeEmail = (e: ChangeEvent<HTMLInputElement>) =>
+    setEmail(e.target.value);
+
+  const onChangePhone = (e: ChangeEvent<HTMLInputElement>) =>
+    setPhone(e.target.value);
+
   const onClickUpdate = () => alert();
 
   return (
@@ -53,19 +65,35 @@ export const UserDetailModal: VFC<Props> = memo((props) => {
           <Stack spacing={4}>
             <FormControl>
               <FormLabel>名前</FormLabel>
-              <Input value={user?.username} isReadOnly={!isAdmin} />
+              <Input
+                value={username}
+                onChange={onChangeUserName}
+                isReadOnly={!isAdmin}
+              />
             </FormControl>
             <FormControl>
               <FormLabel>フルネーム名前</FormLabel>
-              <Input value={user?.name} isReadOnly={!isAdmin} />
+              <Input
+                value={name}
+                onChange={onChangeName}
+                isReadOnly={!isAdmin}
+              />
             </FormControl>
             <FormControl>
               <FormLabel>MAIL</FormLabel>
-              <Input value={user?.email} isReadOnly={!isAdmin} />
+              <Input
+                value={email}
+                onChange={onChangeEmail}
+                isReadOnly={!isAdmin}
+              />
             </FormControl>
             <FormControl>
               <FormLabel>TEL</FormLabel>
-              <Input value={user?.phone} isReadOnly={!isAdmin} />
+              <Input
+                value={phone}
+                onChange={onChangePhone}
+                isReadOnly={!isAdmin}
+              />
             </FormControl>
           </Stack>
         </ModalBody>
